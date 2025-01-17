@@ -7,11 +7,17 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
-import { routes } from 'vue-router/auto-routes'
+// import { routes } from 'vue-router/auto-routes'
 
+// Pages
+import HomePage from '../pages/index.vue'
+
+// Router
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: setupLayouts(routes),
+  routes: setupLayouts([
+    { path: '/', component: HomePage }
+  ]),
 })
 
 // Workaround for https://github.com/vitejs/vite/issues/11804
